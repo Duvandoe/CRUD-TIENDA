@@ -1,0 +1,80 @@
+/* Home.css */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #6e7bff, #2c3e50); /* Gradiente atractivo de fondo */
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    padding: 0 20px;
+  }
+  
+  .home-container h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave para el texto */
+  }
+  
+  .home-container p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    max-width: 600px;
+    color: rgba(255, 255, 255, 0.8); /* Color blanco con algo de transparencia */
+  }
+  
+  .home-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Para permitir que los botones se ajusten en pantallas pequeñas */
+  }
+  
+  .home-button {
+    padding: 15px 30px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+  }
+  
+  .home-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px); /* Efecto de elevación */
+  }
+  
+  .home-button:active {
+    background-color: #1c5980;
+    transform: translateY(1px); /* Efecto de presionar el botón */
+  }
+  
+  @media (max-width: 768px) {
+    .home-container h1 {
+      font-size: 2.2rem;
+    }
+  
+    .home-container p {
+      font-size: 1rem;
+    }
+  
+    .home-button-container {
+      gap: 15px;
+    }
+  
+    .home-button {
+      width: 150px; /* Botones más pequeños en pantallas pequeñas */
+    }
+  }
+  
