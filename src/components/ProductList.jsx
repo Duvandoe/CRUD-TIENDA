@@ -1,8 +1,9 @@
 import React from 'react';
+import './ProductList.css'; // Asegúrate de importar el CSS
 
 function ProductList({ products }) {
   return (
-    <div>
+    <div className="product-list">
       <h3>Lista de Productos</h3>
       <table>
         <thead>
@@ -36,3 +37,4 @@ function ProductList({ products }) {
 }
 
 export default ProductList;
+

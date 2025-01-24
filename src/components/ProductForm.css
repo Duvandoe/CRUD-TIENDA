@@ -1,0 +1,74 @@
+/* Estilos generales para el formulario */
+.product-form {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .product-form h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
+  
+  /* Campos de entrada */
+  .product-form input {
+    width: 90%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .product-form input:focus {
+    border-color: #1abc9c;
+    background-color: #fff;
+    outline: none;
+  }
+  
+  /* Botón de envío */
+  .product-form button {
+    width: 94%;
+    margin: 0 auto;
+    padding: 12px;
+    background-color: #1abc9c;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .product-form button:hover {
+    background-color: #16a085;
+  }
+  
+  /* Ajustes responsivos */
+  @media (max-width: 768px) {
+    .product-form {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    .product-form h3 {
+      font-size: 1.5rem;
+    }
+  
+    .product-form input {
+      font-size: 0.9rem;
+    }
+  
+    .product-form button {
+      font-size: 1rem;
+    }
+  }
+  

@@ -11,14 +11,15 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', { email, contrasena });
-      localStorage.setItem('token', response.data.token);
-      navigate('/dashboard');
-    } catch (error) {
-      console.error('Error al iniciar sesión:', error.response ? error.response.data : error);
-      setError('Error al iniciar sesión. Por favor, verifica tus credenciales.');
-    }
+     axios.post('http://localhost:5000/api/auth/login', { email, contrasena })
+    .then((response) => {
+    localStorage.setItem('token', response.data.token);
+    console.log("Token guardado en el localStorage:", response.data.token);
+    navigate('/dashboard'); // Redirigir al dashboard después de iniciar sesión
+  })
+  .catch((error) => {
+    console.error('Error al iniciar sesión:', error);
+  });
   };
 
   return (

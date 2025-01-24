@@ -1,0 +1,35 @@
+/* Estilos generales para el botón de Logout */
+.logout-button {
+    padding: 12px 25px;
+    width: 100%;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+  }
+  
+  /* Efecto al pasar el mouse */
+  .logout-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+  }
+  
+  /* Efecto de enfoque */
+  .logout-button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Diseño en dispositivos móviles */
+  @media (max-width: 768px) {
+    .logout-button {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+    }
+  }
+  

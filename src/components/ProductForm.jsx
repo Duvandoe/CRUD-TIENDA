@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './ProductForm.css'; // Asegúrate de importar el CSS
 
 function ProductForm() {
   const [nombre, setNombre] = useState('');
@@ -10,24 +11,34 @@ function ProductForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem('token');
-
-    try {
-      await axios.post(
-        'http://localhost:5000/api/productos',
-        { nombre, descripcion, precio, categoria, cantidad },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
-      alert('Producto agregado');
-    } catch (error) {
-      console.error('Error al agregar producto:', error);
+    const token = localStorage.getItem('token'); // Verifica si el token está presente
+    if (!token) {
+      console.error('Token no encontrado');
+      return;
     }
-  };
+  
+    axios.post('http://localhost:5000/api/productos', {
+    nombre,
+    descripcion,
+    precio,
+    categoria,
+    cantidad
+    }, {
+    headers: {
+      Authorization: `Bearer ${token}`  // Aquí se envía el token correctamente
+    }
+  })
+    .then(response => {
+    console.log('Producto agregado:', response.data);
+    })
+  .catch(error => {
+    console.error('Error al agregar producto:', error.response ? error.response.data : error.message);
+  });
+    };
+  
 
   return (
-    <div>
+    <div className="product-form">
       <h3>Agregar Producto</h3>
       <form onSubmit={handleSubmit}>
         <input
@@ -67,3 +78,4 @@ function ProductForm() {
 }
 
 export default ProductForm;
+

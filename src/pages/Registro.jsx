@@ -14,10 +14,11 @@ function Registro() {
       await axios.post('http://localhost:5000/api/auth/register', { email, contrasena });
       navigate('/login');
     } catch (error) {
-      console.error('Error al registrarse:', error);
+      console.error('Error al registrarse:', error.response ? error.response.data : error);
+      alert("Hubo un error al registrarse. Inténtalo de nuevo.");
     }
   };
-
+  
   return (
     <div className="registro-container">
       <h2>Registrarse</h2>
