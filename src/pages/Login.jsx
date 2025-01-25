@@ -11,19 +11,19 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-     axios.post('http://localhost:5000/api/auth/login', { email, contrasena })
-    .then((response) => {
-    localStorage.setItem('token', response.data.token);
-    console.log("Token guardado en el localStorage:", response.data.token);
-    navigate('/dashboard'); // Redirigir al dashboard después de iniciar sesión
-  })
-  .catch((error) => {
-    console.error('Error al iniciar sesión:', error);
-  });
+    try {
+      const response = await axios.post('http://localhost:5000/api/auth/login', { email, contrasena });
+      localStorage.setItem('token', response.data.token);
+      navigate('/dashboard'); // Redirigir al dashboard después de iniciar sesión
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+      setError('Credenciales incorrectas. Intenta nuevamente.');
+    }
   };
 
   return (
     <div className="login-container">
+      <button className="back-button"><a href="/">Regresar al inicio</a></button>
       <h2>Iniciar Sesión</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -45,7 +45,9 @@ function Login() {
           />
         </div>
         <button type="submit">Iniciar Sesión</button>
-        <h3 className='cuenta'>¿No tienes una cuenta? <a href="/register">Registrarse</a></h3>
+        <h3 className='cuenta'>
+          ¿No tienes una cuenta? <a href="/register">Registrarse</a>
+        </h3>
         {error && <p className="error-message">{error}</p>}
       </form>
     </div>
@@ -53,4 +55,7 @@ function Login() {
 }
 
 export default Login;
+
+
+
 

@@ -4,11 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import ProductList from '../components/ProductList';
 import ProductForm from '../components/ProductForm';
 import Logout from '../components/Logout';
+import banner from '../img/banner.png';
 import './Dashboard.css';
 
 function Dashboard() {
   const [products, setProducts] = useState([]);
   const [view, setView] = useState('list'); // Estado para cambiar la vista
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Estado para el menú desplegable
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,14 +33,23 @@ function Dashboard() {
 
   return (
     <div className="dashboard-container">
+      {/* Botón de hamburguesa (ahora oculto mediante CSS) */}
+      <button
+        className={`hamburger-btn ${isSidebarOpen ? 'open' : ''}`}
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+      >
+        ☰
+      </button>
+
       {/* Sidebar */}
-      <div className="sidebar">
+      <div className={`sidebar ${isSidebarOpen ? '' : 'hidden'}`}>
         <h2>Dashboard</h2>
+        <div className="banner-container">
+          <img src={banner} alt="banner" className="sidebar-banner" />
+        </div>
         <ul>
           <li onClick={() => setView('list')}>Ver Productos</li>
           <li onClick={() => setView('create')}>Crear Producto</li>
-          <li onClick={() => setView('update')}>Actualizar Producto</li>
-          <li onClick={() => setView('delete')}>Eliminar Producto</li>
           <Logout />
         </ul>
       </div>
@@ -47,12 +58,12 @@ function Dashboard() {
       <div className="main-content">
         {view === 'list' && <ProductList products={products} />}
         {view === 'create' && <ProductForm />}
-        {view === 'update' && <h3>Función de actualizar en construcción...</h3>}
-        {view === 'delete' && <h3>Función de eliminar en construcción...</h3>}
       </div>
     </div>
   );
 }
 
 export default Dashboard;
+
+
 

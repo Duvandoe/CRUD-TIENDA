@@ -1,103 +1,134 @@
 /* Estilos generales para la lista de productos */
 .product-list {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.product-list h3 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+/* Contenedor para tabla responsiva */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* Activa scroll horizontal */
+  margin-top: 20px;
+}
+
+.product-list table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px; /* Asegura que la tabla no se encoja demasiado */
+}
+
+.product-list th,
+.product-list td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+  white-space: nowrap; /* Evita el salto de línea */
+}
+
+.product-list th {
+  background-color: #2c3e50;
+  color: white;
+  font-weight: bold;
+}
+
+.product-list td {
+  word-wrap: break-word; /* Ajusta texto largo */
+  white-space: normal; /* Permite el salto de línea cuando sea necesario */
+}
+
+.product-list tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.product-list tr:hover {
+  background-color: #ecf0f1;
+}
+
+/* Botones */
+.product-list button {
+  padding: 8px 15px;
+  margin: 5px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Evita que el texto se desborde */
+}
+
+.product-list button:hover {
+  background-color: #1abc9c;
+  color: white;
+}
+
+/* Botón de editar */
+.product-list .edit-btn {
+  background-color: #f39c12;
+  color: white;
+}
+
+.product-list .edit-btn:hover {
+  background-color: #e67e22;
+}
+
+.product-list .edit-btn svg {
+  margin-right: 8px;
+}
+
+/* Botón de eliminar */
+.product-list .delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.product-list .delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.product-list .delete-btn svg {
+  margin-right: 8px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .product-list {
+    width: 90%;
+    padding: 15px;
   }
-  
+
   .product-list h3 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 20px;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
-  
-  /* Estilos para la tabla */
+
   .product-list table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    min-width: 600px; /* Asegura una tabla compacta en móviles */
   }
-  
+
   .product-list th,
   .product-list td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ddd;
+    font-size: 0.9rem;
+    padding: 8px;
   }
-  
-  .product-list th {
-    background-color: #2c3e50;
-    color: white;
-    font-weight: bold;
-  }
-  
-  .product-list tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .product-list tr:hover {
-    background-color: #ecf0f1;
-  }
-  
-  /* Estilo para los botones */
+
   .product-list button {
-    padding: 8px 15px;
-    margin: 5px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 0.8rem;
+    padding: 5px 10px;
   }
-  
-  .product-list button:hover {
-    background-color: #1abc9c;
-    color: white;
-  }
-  
-  /* Botón de editar */
-  .product-list button:nth-child(1) {
-    background-color: #f39c12;
-    color: white;
-  }
-  
-  .product-list button:nth-child(1):hover {
-    background-color: #e67e22;
-  }
-  
-  /* Botón de eliminar */
-  .product-list button:nth-child(2) {
-    background-color: #e74c3c;
-    color: white;
-  }
-  
-  .product-list button:nth-child(2):hover {
-    background-color: #c0392b;
-  }
-  
-  /* Ajustes responsivos */
-  @media (max-width: 768px) {
-    .product-list {
-      width: 90%;
-      padding: 15px;
-    }
-  
-    .product-list h3 {
-      font-size: 1.5rem;
-    }
-  
-    .product-list th, .product-list td {
-      font-size: 0.9rem;
-      padding: 8px;
-    }
-  
-    .product-list button {
-      font-size: 0.9rem;
-      padding: 6px 12px;
-    }
-  }
+}
+
+
+
   

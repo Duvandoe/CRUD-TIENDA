@@ -21,6 +21,7 @@ function Registro() {
   
   return (
     <div className="registro-container">
+      <button className="back-button"><a href="/">Regresar al inicio</a></button>
       <h2>Registrarse</h2>
       <form onSubmit={handleSubmit}>
         <div>

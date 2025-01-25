@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2'; // Importa SweetAlert2
 import './ProductForm.css'; // Asegúrate de importar el CSS
 
 function ProductForm() {
@@ -13,29 +14,56 @@ function ProductForm() {
     e.preventDefault();
     const token = localStorage.getItem('token'); // Verifica si el token está presente
     if (!token) {
-      console.error('Token no encontrado');
+      Swal.fire({
+        title: 'Error',
+        text: 'Token no encontrado. Inicia sesión.',
+        icon: 'error',
+        confirmButtonText: 'Entendido',
+      });
       return;
     }
-  
-    axios.post('http://localhost:5000/api/productos', {
-    nombre,
-    descripcion,
-    precio,
-    categoria,
-    cantidad
-    }, {
-    headers: {
-      Authorization: `Bearer ${token}`  // Aquí se envía el token correctamente
+
+    try {
+      const response = await axios.post(
+        'http://localhost:5000/api/productos',
+        {
+          nombre,
+          descripcion,
+          precio,
+          categoria,
+          cantidad,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Aquí se envía el token correctamente
+          },
+        }
+      );
+
+      // Mostrar alerta de éxito
+      Swal.fire({
+        title: '¡Producto añadido!',
+        text: `El producto "${response.data.nombre}" se agregó correctamente.`,
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+      });
+
+      // Limpiar los campos después de agregar
+      setNombre('');
+      setDescripcion('');
+      setPrecio('');
+      setCategoria('');
+      setCantidad('');
+    } catch (error) {
+      console.error('Error al agregar producto:', error.response ? error.response.data : error.message);
+      Swal.fire({
+        title: 'Error',
+        text: 'No se pudo agregar el producto. Inténtalo nuevamente.',
+        icon: 'error',
+        confirmButtonText: 'Entendido',
+      });
     }
-  })
-    .then(response => {
-    console.log('Producto agregado:', response.data);
-    })
-  .catch(error => {
-    console.error('Error al agregar producto:', error.response ? error.response.data : error.message);
-  });
-    };
-  
+  };
 
   return (
     <div className="product-form">
@@ -78,4 +106,5 @@ function ProductForm() {
 }
 
 export default ProductForm;
+
 

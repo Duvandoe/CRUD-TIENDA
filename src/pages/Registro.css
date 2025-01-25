@@ -1,109 +1,142 @@
-/* Registro.css */
-
+/* Estilos generales para el contenedor de registro */
 .registro-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #3498db, #2c3e50); /* Gradiente atractivo */
-    font-family: 'Roboto', sans-serif;
-    color: white;
-    padding: 0 20px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #3498db, #2c3e50); /* Gradiente atractivo */
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  padding: 0 20px;
+  position: relative; /* Necesario para la posición absoluta del botón */
+}
+
+/* Estilo para el botón de regresar al inicio en la esquina superior izquierda */
+.back-button {
+  position: absolute;
+  top: 20px; /* Separación desde la parte superior */
+  left: 20px; /* Separación desde la parte izquierda */
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 10; /* Asegura que esté por encima de otros elementos */
+}
+
+.back-button a {
+  text-decoration: none;
+  color: white;
+}
+
+.back-button:hover {
+  color: #3498db;
+}
+
+/* Estilo para el título del formulario */
+.registro-container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil en el texto */
+  animation: color-change 4s infinite linear; /* Animación de color */
+}
+
+/* Animación de cambio de color en el título */
+@keyframes color-change {
+  0% { color: #f39c12; }
+  25% { color: #e74c3c; }
+  50% { color: #9b59b6; }
+  75% { color: #2980b9; }
+  100% { color: #f39c12; }
+}
+
+/* Estilos para el formulario */
+.registro-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px; /* Máximo ancho para el formulario */
+  margin: 0 auto;
+}
+
+/* Estilos para los labels */
+.registro-container label {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 8px; /* Separación entre label y input */
+}
+
+/* Estilos para los inputs */
+.registro-container input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Asegura que el input ocupe todo el ancho del contenedor */
+}
+
+/* Estilo para los enlaces */
+a {
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #3498db;
+}
+
+/* Estilos para el botón de submit */
+.registro-container button {
+  padding: 12px;
+  background-color: #2980b9;
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  border: none;
+}
+
+.registro-container button:hover {
+  background-color: #1c5980;
+  transform: translateY(-3px); /* Efecto de elevación */
+}
+
+.registro-container button:active {
+  background-color: #1a4870;
+  transform: translateY(1px); /* Efecto de presionar el botón */
+}
+
+/* Estilo para el mensaje de error */
+.registro-container .error-message {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
   .registro-container h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil en el texto */
-    animation: color-change 4s infinite linear; /* Animación de color */
+    font-size: 2rem;
   }
-  
-  /* Animación de cambio de color */
-  @keyframes color-change {
-    0% {
-      color: #f39c12; /* Color inicial */
-    }
-    25% {
-      color: #e74c3c; /* Primer cambio de color */
-    }
-    50% {
-      color: #9b59b6; /* Segundo cambio de color */
-    }
-    75% {
-      color: #2980b9; /* Tercer cambio de color */
-    }
-    100% {
-      color: #f39c12; /* Regresar al color inicial */
-    }
-  }
-  
-  .registro-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 400px; /* Máximo ancho para el formulario */
-    margin: 0 auto;
-  }
-  
-  .registro-container label {
-    font-size: 1rem;
-    font-weight: 500;
-    text-align: left;
-    margin-bottom: 8px; /* Separación entre label y input */
-  }
-  
+
   .registro-container input {
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: none;
-    margin-top: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 90%; /* Asegura que el input ocupe todo el ancho del contenedor */
-  }
-  
-  .registro-container button {
-    padding: 12px;
-    background-color: #2980b9;
-    color: white;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: all 0.3s ease-in-out;
-    border: none;
-  }
-  
-  .registro-container button:hover {
-    background-color: #1c5980;
-    transform: translateY(-3px); /* Efecto de elevación */
-  }
-  
-  .registro-container button:active {
-    background-color: #1a4870;
-    transform: translateY(1px); /* Efecto de presionar el botón */
-  }
-  
-  .registro-container .error-message {
-    color: #e74c3c;
     font-size: 0.9rem;
-    margin-top: 10px;
   }
-  
-  @media (max-width: 768px) {
-    .registro-container h2 {
-      font-size: 2rem;
-    }
-  
-    .registro-container input {
-      font-size: 0.9rem;
-    }
-  
-    .registro-container button {
-      width: 100%;
-    }
+
+  .registro-container button {
+    width: 50%;
+    text-align: center;
   }
+}
+
   

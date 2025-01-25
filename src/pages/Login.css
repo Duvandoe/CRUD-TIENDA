@@ -1,122 +1,174 @@
-/* Login.css */
-
+/* Estilos generales para el contenedor del login */
 .login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #3498db, #2c3e50); /* Gradiente atractivo */
-    font-family: 'Roboto', sans-serif;
-    color: white;
-    padding: 0 20px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #3498db, #2c3e50); /* Gradiente atractivo */
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  padding: 0 20px;
+  position: relative; /* Importante para posicionar el botón */
+}
+
+/* Estilo base para el botón de regresar */
+.back-button {
+  position: absolute;
+  top: 20px; /* Separación desde la parte superior */
+  left: 20px; /* Separación desde la parte izquierda */
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem; /* Tamaño inicial */
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 10;
+  display: flex; /* Alineación para íconos si los usas */
+  align-items: center; /* Centrado vertical */
+  gap: 5px; /* Espacio entre texto e íconos */
+  padding: 5px 10px; /* Añadir algo de relleno */
+  border-radius: 8px; /* Botón con esquinas redondeadas */
+  transition: all 0.3s ease-in-out; /* Suaviza cambios al pasar el mouse */
+}
+
+.back-button a {
+  text-decoration: none;
+  color: white;
+}
+
+.back-button:hover {
+  color: #3498db;
+  transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+/* Estilo para el título del formulario */
+.login-container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil en el texto */
+  animation: color-change 4s infinite linear; /* Animación de color */
+}
+
+/* Animación de cambio de color en el título */
+@keyframes color-change {
+  0% { color: #f39c12; }
+  25% { color: #e74c3c; }
+  50% { color: #9b59b6; }
+  75% { color: #2980b9; }
+  100% { color: #f39c12; }
+}
+
+/* Estilos para el formulario */
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px; /* Máximo ancho para el formulario */
+  margin: 0 auto;
+}
+
+/* Estilos para los labels */
+.login-container label {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 8px; /* Separación entre label y input */
+}
+
+/* Estilos para los inputs */
+.login-container input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Asegura que el input ocupe todo el ancho del contenedor */
+}
+
+/* Estilo para los enlaces */
+a {
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #3498db;
+}
+
+/* Estilos para el botón de submit */
+.login-container button {
+  padding: 12px;
+  background-color: #2980b9;
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-container button:hover {
+  background-color: #1c5980;
+  transform: translateY(-3px); /* Efecto de elevación */
+}
+
+.login-container button:active {
+  background-color: #1a4870;
+  transform: translateY(1px); /* Efecto de presionar el botón */
+}
+
+/* Estilo para el mensaje de error */
+.login-container .error-message {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
   .login-container h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil en el texto */
-    animation: color-change 4s infinite linear; /* Animación de color */
-  }
-  
-  /* Definir la animación de cambio de color */
-  @keyframes color-change {
-    0% {
-      color: #f39c12; /* Color inicial */
-    }
-    25% {
-      color: #e74c3c; /* Primer cambio de color */
-    }
-    50% {
-      color: #9b59b6; /* Segundo cambio de color */
-    }
-    75% {
-      color: #2980b9; /* Tercer cambio de color */
-    }
-    100% {
-      color: #f39c12; /* Regresar al color inicial */
-    }
-  }
-  
-  .login-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 400px; /* Máximo ancho para el formulario */
-    margin: 0 auto;
-  }
-  
-  .login-container label {
-    font-size: 1rem;
-    font-weight: 500;
-    text-align: left;
-    margin-bottom: 8px; /* Separación entre label y input */
-  }
-  
-  .login-container input {
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: none;
-    margin-top: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 90%; /* Asegura que el input ocupe todo el ancho del contenedor */
+    font-size: 2rem;
   }
 
-  a {
-    text-decoration: none;
-    color: white;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  a:hover {
-    color: #3498db;
+  .login-container input {
+    font-size: 0.9rem;
   }
 
   .login-container button {
-    padding: 12px;
-    background-color: #2980b9;
-    color: white;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: all 0.3s ease-in-out;
-    border: none;
-    cursor:pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    font-size: 1rem;
+    justify-content: center;
   }
-  
-  .login-container button:hover {
-    background-color: #1c5980;
-    transform: translateY(-3px); /* Efecto de elevación */
+
+  .back-button {
+    font-size: 0.9rem; /* Reducimos el tamaño del texto */
+    top: 15px; /* Ajustamos la posición */
+    left: 15px;
+    padding: 4px 8px; /* Reducimos el padding para mantener el diseño compacto */
+    gap: 3px; /* Menor separación entre texto e íconos */
   }
-  
-  .login-container button:active {
-    background-color: #1a4870;
-    transform: translateY(1px); /* Efecto de presionar el botón */
+}
+
+@media (max-width: 480px) {
+  .back-button {
+    font-size: 0.8rem; /* Aún más pequeño para pantallas muy estrechas */
+    top: 10px; /* Posición más ajustada */
+    left: 10px;
+    padding: 3px 6px; /* Padding más compacto */
+   
   }
+
   
-  .login-container .error-message {
-    color: #e74c3c;
-    font-size: 0.9rem;
-    margin-top: 10px;
-  }
-  
-  @media (max-width: 768px) {
-    .login-container h2 {
-      font-size: 2rem;
-    }
-  
-    .login-container input {
-      font-size: 0.9rem;
-    }
-  
-    .login-container button {
-      width: 100%;
-    }
-  }
+}
+
+
   
   
